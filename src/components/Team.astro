@@ -1,0 +1,75 @@
+---
+const teamMembers = [
+    {
+        name: 'Ramon Castro',
+        role: 'Cantautor Principal',
+        photo: '/public/team/ramon.jpg',
+        bio: 'Alice has over 10 years of experience in project management and is passionate about leading'
+   
+
+    },
+    {
+        name: 'Josias Brito',
+        role: 'Bajista',
+        photo: '/public/team/josias.jpg',
+        bio: 'Bob is a full-stack developer with expertise in modern web technologies and a knack for problem-solving.'
+    },
+    {
+        name: 'Catherine Lee',
+        role: 'Guitarrista',
+        photo: '/public/team/ruben.png',
+        bio: 'Catherine specializes in creating user-centered designs that enhance user experience and engagement.'
+    }
+];
+---
+
+
+<section class="h-full py-12 bg-[#111111]">
+    <div class="container mx-auto px-4 mt-14">
+        <h2 class="text-3xl font-bold mb-8 text-center text-white"
+        style={{ fontFamily: "F1906 Fantasio Auriol W00 Normal" }}
+        >
+        Meet the Team
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {teamMembers.map((member) => (
+
+
+
+    <div class="relative bg-[#333] rounded-[40px] p-2.5 shadow-md w-full">
+
+    <div class="w-full h-112 overflow-hidden rounded-[30px]">
+        <img
+        src={member.photo}
+        alt={member.name}
+        class="w-full h-full object-cover"
+        />
+    </div>
+
+    <!-- Texto -->
+    <div class="px-5 pt-3 pb-2">
+
+        <div>
+
+            <h3 class="text-xl font-semibold text-white">
+            {member.name}<i class="ri-verified-badge-fill ml-1"></i>
+            </h3>
+
+            <p class="text-sm italic text-gray-300">
+            {member.role}
+            </p>
+        
+        </div>
+
+        <p class="text-sm text-gray-200 mt-1">
+        {member.bio}
+        </p>
+    </div>
+
+</div>
+
+      ))}
+    </div>
+  </div>
+</section>

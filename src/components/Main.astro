@@ -1,0 +1,35 @@
+---
+const sections = [
+    { name: 'HOME', href: '/#home' },
+    { name: 'AGENDA', href: '/#agenda' },
+    { name: 'SPEAKERS', href: '/#speakers' },
+    { name: 'SPONSORS', href: '/#sponsors' },
+    { name: 'TALLERES', href: '/#workshops' },
+]
+---
+
+<header id="main-header" class="flex flex-col items-center fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md z-50 border-b border-white/10 transition-all duration-300">
+    <h1 
+        style="font-family: F1906 Fantasio Auriol W00 Normal;"
+        class="text-4xl mt-2 mb-2 text-white"  
+    >
+    OWEN
+    </h1>
+    
+    <nav class="hidden lg:flex gap-8 text-sm">
+        {sections.map(({ name, href }, key) => (
+        <a 
+            href={href} 
+            style="font-family: Montserrat;"
+            class={[
+            'hover:text-gray-300 text-white py-1 border-b-2 border-b-transparent transition hover:border-b-white text-lg',
+            'active:border-b-javascript'
+            ].join(' ')}
+            id={`navdesk-link-${key}`}
+        >
+            {name}
+        </a>
+        ))}
+    </nav>
+</header>
+

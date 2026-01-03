@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "F1906 Fantasio Auriol W00 Normal";
+    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot");
+    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.svg#F1906 Fantasio Auriol W00 Normal")format("svg");
+}
