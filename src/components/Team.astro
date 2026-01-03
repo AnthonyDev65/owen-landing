@@ -4,72 +4,103 @@ const teamMembers = [
         name: 'Ramon Castro',
         role: 'Cantautor Principal',
         photo: '/public/team/ramon.jpg',
-        bio: 'Alice has over 10 years of experience in project management and is passionate about leading'
-   
-
+        bio: '',
+        instagram: 'brayancastromusic',
+        followers: '713'
     },
     {
         name: 'Josias Brito',
         role: 'Bajista',
         photo: '/public/team/josias.jpg',
-        bio: 'Bob is a full-stack developer with expertise in modern web technologies and a knack for problem-solving.'
+        bio: '',
+        instagram: 'josiasbritof',
+        followers: '447'
     },
     {
-        name: 'Catherine Lee',
+        name: 'Ruben Sanchez',
         role: 'Guitarrista',
         photo: '/public/team/ruben.png',
-        bio: 'Catherine specializes in creating user-centered designs that enhance user experience and engagement.'
+        bio: '',
+        instagram: 'rubenz22',
+        followers: '1,069'
     }
 ];
 ---
 
 
-<section class="h-full py-12 bg-[#111111]">
-    <div class="container mx-auto px-4 mt-14">
-        <h2 class="text-3xl font-bold mb-8 text-center text-white"
+<section class="h-full h-screen py-12 bg-[#111111]">
+
+    <div class="container mx-auto px-4">
+
+        <h2 class="text-4xl font-bold mb-12 text-center text-white italic tracking-wider"
         style={{ fontFamily: "F1906 Fantasio Auriol W00 Normal" }}
         >
         Meet the Team
-    </h2>
+        </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {teamMembers.map((member) => (
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {teamMembers.map((member) => 
+        (
+
+            <div class="relative group bg-[#1a1a1a] rounded-[40px] p-3 shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-white/5 hover:border-white/10">
+
+                <div class="relative w-full h-112 overflow-hidden rounded-[30px]">
+                    <img src={member.photo} alt={member.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"/>
+                    
+                    <!-- Glass Overlay for followers -->
+                    <div class="absolute bottom-4 left-4 right-4 glass rounded-2xl p-3 flex items-center justify-between border border-white/10">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-instagram-line text-xl text-white"></i>
+                            <span class="text-white font-medium text-sm">@{member.instagram}</span>
+                        </div>
+                        <div class="text-white/80 text-xs font-semibold">
+                            {member.followers} followers
+                        </div>
+                    </div>
+                </div>
 
 
+                <!-- Texto -->
+                <div class="px-5 pt-5 pb-4">
 
-    <div class="relative bg-[#333] rounded-[40px] p-2.5 shadow-md w-full">
+                    <div class="flex flex-col gap-1">
 
-    <div class="w-full h-112 overflow-hidden rounded-[30px]">
-        <img
-        src={member.photo}
-        alt={member.name}
-        class="w-full h-full object-cover"
-        />
-    </div>
+                        <h3 class="text-2xl font-bold text-white flex items-center">
+                        {member.name}<i class="ri-verified-badge-fill ml-2 text-blue-400"></i>
+                        </h3>
 
-    <!-- Texto -->
-    <div class="px-5 pt-3 pb-2">
+                        <p class="text-sm font-medium text-gray-400 uppercase tracking-widest mb-4">
+                        {member.role}
+                        </p>
 
-        <div>
+                        <a 
+                            href={`https://instagram.com/${member.instagram}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full bg-white text-black py-3 rounded-2xl font-bold text-center transition-all hover:bg-gray-200 active:scale-95 flex items-center justify-center gap-2"
+                        >
+                            Follow on Instagram
+                            <i class="ri-external-link-line"></i>
+                        </a>
+                
+                    </div>
+                </div>
+            </div>
 
-            <h3 class="text-xl font-semibold text-white">
-            {member.name}<i class="ri-verified-badge-fill ml-1"></i>
-            </h3>
-
-            <p class="text-sm italic text-gray-300">
-            {member.role}
-            </p>
-        
+        ))}
         </div>
 
-        <p class="text-sm text-gray-200 mt-1">
-        {member.bio}
-        </p>
-    </div>
 
-</div>
 
-      ))}
-    </div>
+
   </div>
 </section>
+
+
+<style>
+    .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+</style>
