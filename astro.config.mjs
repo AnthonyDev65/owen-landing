@@ -20,8 +20,8 @@ export default defineConfig({
     }
   },
 
-  // Cambiar por tu dominio
-  site: 'https://owen-music.com',
+  // Cambiar por tu URL de Vercel
+  site: 'https://owenmusic.vercel.app/',
 
   compressHTML: true,
 
