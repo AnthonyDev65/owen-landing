@@ -8,9 +8,9 @@ export interface Props {
 }
 
 const { 
-	title = "OWEN | Grupo Musical Latin-Pop Dominicano",
-	description = "Owen es una banda de música latina pop dominico-venezolana formada en 2018 en La Romana. Descubre nuestra música romántica y bohemia.",
-	image = "/team/group.jpg"
+	title = "OWEN - Banda Musical Latina Pop Dominico-Venezolana | Música Romántica y Bohemia",
+	description = "Owen es una banda de música latina pop dominico-venezolana formada en 2018 en La Romana. Descubre nuestra música romántica y bohemia con canciones como 'El Problema', 'Vulnerable' y 'Esta Navidad'.",
+	image = "/og-image.png"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -34,7 +34,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(image, Astro.site)} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/png" />
 		<meta property="og:locale" content="es_ES" />
+		<meta property="og:site_name" content="Owen Music" />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -42,6 +46,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={new URL(image, Astro.site)} />
+		<meta property="twitter:image:alt" content="Owen - Banda Musical Latina Pop Dominico-Venezolana" />
 		
 		<!-- Structured Data -->
 		<script type="application/ld+json" is:inline>
