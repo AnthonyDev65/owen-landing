@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -17,14 +19,21 @@ export default defineConfig({
       }
     }
   },
-  site: 'https://owen-music.com', // Cambiar por tu dominio
+
+  // Cambiar por tu dominio
+  site: 'https://owen-music.com',
+
   compressHTML: true,
+
   build: {
     inlineStylesheets: 'auto'
   },
+
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp'
     }
-  }
+  },
+
+  adapter: vercel()
 });
