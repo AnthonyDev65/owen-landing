@@ -67,6 +67,9 @@ const musicTracks = getSortedTracks();
                                         src={track.cover} 
                                         alt={`Portada de ${track.title}`}
                                         class="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110"
+                                        loading="lazy"
+                                        width="320"
+                                        height="320"
                                         draggable="false"
                                     />
                                     
@@ -191,86 +194,90 @@ const musicTracks = getSortedTracks();
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const wrapper = document.getElementById('carousel-wrapper') as HTMLElement;
-        const track = document.getElementById('carousel-track') as HTMLElement;
-        const prevBtn = document.getElementById('carousel-prev') as HTMLButtonElement;
-        const nextBtn = document.getElementById('carousel-next') as HTMLButtonElement;
+    // Optimized carousel script with performance improvements
+    const initCarousel = () => {
+        const wrapper = document.getElementById('carousel-wrapper');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
         const dots = document.querySelectorAll('.carousel-dot');
         const items = document.querySelectorAll('.carousel-item');
         
-        if (!wrapper || !track || items.length === 0) return;
+        if (!wrapper || items.length === 0) return;
 
         let currentIndex = 0;
+        let isScrolling = false;
 
-        // Función para obtener el ancho del item dinámicamente
+        // Optimized item width calculation
         const getItemWidth = () => {
             const item = items[0] as HTMLElement;
-            const style = window.getComputedStyle(item);
-            const marginRight = parseFloat(style.marginRight) || 0;
-            return item.offsetWidth + 24; // width + gap (24px = 1.5rem)
+            return item.offsetWidth + 24; // width + gap
         };
 
-        // Función para actualizar dots
-        const updateDots = () => {
-            const itemWidth = getItemWidth();
-            const scrollPosition = wrapper.scrollLeft;
-            const newIndex = Math.round(scrollPosition / itemWidth);
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === newIndex);
-            });
-            
-            currentIndex = Math.max(0, Math.min(newIndex, items.length - 1));
-        };
+        // Throttled dot update function
+        const updateDots = (() => {
+            let timeout: number | undefined;
+            return () => {
+                if (timeout) return;
+                timeout = window.setTimeout(() => {
+                    const itemWidth = getItemWidth();
+                    const scrollPosition = wrapper.scrollLeft;
+                    const newIndex = Math.round(scrollPosition / itemWidth);
+                    
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === newIndex);
+                    });
+                    
+                    currentIndex = Math.max(0, Math.min(newIndex, items.length - 1));
+                    timeout = undefined;
+                }, 16); // ~60fps
+            };
+        })();
 
-        // Función para scroll a índice específico
+        // Smooth scroll to index
         const scrollToIndex = (index: number) => {
+            if (isScrolling) return;
+            
             const maxIndex = items.length - 1;
             index = Math.max(0, Math.min(index, maxIndex));
             const itemWidth = getItemWidth();
             
+            isScrolling = true;
             wrapper.scrollTo({
                 left: index * itemWidth,
                 behavior: 'smooth'
             });
-            currentIndex = index;
             
-            // Actualizar dots después de un pequeño delay
-            setTimeout(updateDots, 100);
+            currentIndex = index;
+            setTimeout(() => { isScrolling = false; }, 300);
         };
 
-        // Botones de navegación (desktop)
+        // Event listeners with passive scrolling
         if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', () => {
-                scrollToIndex(currentIndex - 1);
-            });
-
-            nextBtn.addEventListener('click', () => {
-                scrollToIndex(currentIndex + 1);
-            });
+            prevBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+            nextBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
         }
 
-        // Click en dots
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                scrollToIndex(index);
-            });
+            dot.addEventListener('click', () => scrollToIndex(index));
         });
 
-        // Actualizar dots al hacer scroll (con debounce)
-        let scrollTimeout: number;
-        wrapper.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = window.setTimeout(updateDots, 50);
-        });
+        wrapper.addEventListener('scroll', updateDots, { passive: true });
 
-        // Inicializar primer dot como activo
-        setTimeout(updateDots, 100);
+        // Initialize
+        updateDots();
 
-        // Actualizar al cambiar tamaño de ventana
+        // Resize handler with debounce
+        let resizeTimeout: number | undefined;
         window.addEventListener('resize', () => {
-            updateDots();
-        });
-    });
+            clearTimeout(resizeTimeout);
+            resizeTimeout = window.setTimeout(updateDots, 150);
+        }, { passive: true });
+    };
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+        initCarousel();
+    }
 </script>

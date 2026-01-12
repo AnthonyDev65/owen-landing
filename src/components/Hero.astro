@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { siteInfo } from '../data/site';
+import heroImage from '../../public/team/IMG_8173.jpg';
 
 const socialLinks = [
     { name: 'Spotify', icon: 'ri-spotify-fill', url: siteInfo.socialMedia.spotify, color: 'hover:bg-green-500 hover:border-green-500' },
@@ -12,14 +14,19 @@ const socialLinks = [
 
 <section
     id="home"
-    class="relative bg-black w-full min-h-screen flex items-center justify-center overflow-hidden"
+    class="hero-container relative bg-black w-full min-h-screen flex items-center justify-center overflow-hidden"
 >
     <!-- Imagen de fondo -->
     <div class="absolute inset-0 w-full h-full">
-        <img
-            src="/team/IMG_8173.jpg"
+        <Image
+            src={heroImage}
             alt="Banda Owen en presentación musical - Imagen principal"
-            class="w-full h-full object-cover object-top" 
+            class="w-full h-full object-cover object-top"
+            loading="eager"
+            format="webp"
+            quality={85}
+            widths={[640, 768, 1024, 1280, 1920]}
+            sizes="100vw"
         />
     </div>
 

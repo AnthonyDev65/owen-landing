@@ -12,7 +12,7 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: 'Brayan Castro',
-    role: 'Cantautor Principal',
+    role: 'Vocalista Principal',
     photo: '/team/ramon.jpg',
     bio: 'CANTANTE & COMPOSITOR | ROMANTICO EMPEDERNIDO Y BOHEMIO DE CORAZON.',
     instagram: 'brayancastromusic',
@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Josias Brito',
-    role: 'Bajista',
+    role: 'Vocalista',
     photo: '/team/josias.jpg',
     bio: 'GUITARRISTA - BAJISTA & CANTANTE | BALADISTA DE CORAZON Y MUSICO POR DECISION.',
     instagram: 'josiasbritof',

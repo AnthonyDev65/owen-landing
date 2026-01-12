@@ -41,4 +41,18 @@ export default {
     },
   },
   plugins: [],
+  // Performance optimizations
+  corePlugins: {
+    container: false, // Disable if not used
+  },
+  // Safelist critical dynamic classes
+  safelist: [
+    'active',
+    'animate-pulse',
+    'animate-bounce',
+    'grayscale-0',
+    'scale-110',
+    'translate-y-0',
+    'opacity-100'
+  ]
 }

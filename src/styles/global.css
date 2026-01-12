@@ -1,14 +1,10 @@
 @import "tailwindcss";
 
-/* Custom Font Face */
+/* Custom Font Face - optimized loading */
 @font-face {
     font-family: "F1906 Fantasio Auriol W00 Normal";
-    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot");
-    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot?#iefix") format("embedded-opentype"),
-         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff2") format("woff2"),
-         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff") format("woff"),
-         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.ttf") format("truetype"),
-         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.svg#F1906 Fantasio Auriol W00 Normal") format("svg");
+    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff") format("woff");
     font-display: swap;
 }
 
@@ -30,21 +26,23 @@ body {
 }
 
 /* Focus styles for accessibility */
-a:focus,
-button:focus {
+a:focus-visible,
+button:focus-visible {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
 }
 
-/* Reduced motion support - excluye el carrusel */
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
     
-    *:not(.carousel-track-wrapper),
-    *:not(.carousel-track-wrapper)::before,
-    *:not(.carousel-track-wrapper)::after {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
 }
