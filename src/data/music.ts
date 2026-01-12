@@ -25,8 +25,8 @@ export const musicTracks: MusicTrack[] = [
       youtube: "https://www.youtube.com/watch?v=mtTOEhb7zwU",
       spotify: "https://open.spotify.com/track/7upXbm3KYPjRHKkVedrBUm?si=d2aef0c7d6a2469c"
     },
-    featured: true,
-    order: 1
+    featured: false,
+    order: 3
   },
   {
     title: "Vulnerable",
@@ -38,7 +38,7 @@ export const musicTracks: MusicTrack[] = [
       youtube: "https://www.youtube.com/watch?v=nphfFqzIBnQ",
       spotify: "https://open.spotify.com/track/1GYYdVlaTQTU4wXJxtyoup?si=5a355ea71de84260"
     },
-    featured: false,
+    featured: true,
     order: 2
   },
   {
@@ -51,8 +51,8 @@ export const musicTracks: MusicTrack[] = [
       youtube: "https://www.youtube.com/watch?v=W3N88XWoehU",
       spotify: "https://open.spotify.com/track/0Pv0UZscaZntaVAM83Nk3c?si=d0d60f5447c043bc"
     },
-    featured: false,
-    order: 3
+    featured: true,
+    order: 1
   },
   {
     title: "Dime",
@@ -77,7 +77,7 @@ export const musicTracks: MusicTrack[] = [
       youtube: "https://www.youtube.com/watch?v=rrHSAOhlP1U",
       spotify: "https://open.spotify.com/track/64ZT7ZdzpauAL8sU12aObK?si=da8768f8fe0a4a14"
     },
-    featured: true,
+    featured: false,
     order: 5
   }
 ];
