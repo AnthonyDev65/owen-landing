@@ -1,0 +1,133 @@
+---
+import { siteInfo } from '../data/site';
+
+const socialLinks = [
+    { name: 'Spotify', icon: 'ri-spotify-fill', url: siteInfo.socialMedia.spotify, hoverColor: 'hover:bg-green-500 hover:border-green-500' },
+    { name: 'Instagram', icon: 'ri-instagram-line', url: siteInfo.socialMedia.instagram, hoverColor: 'hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-pink-500' },
+    { name: 'Apple Music', icon: 'ri-apple-fill', url: siteInfo.socialMedia.appleMusic, hoverColor: 'hover:bg-pink-500 hover:border-pink-500' },
+    { name: 'TikTok', icon: 'ri-tiktok-fill', url: siteInfo.socialMedia.tiktok, hoverColor: 'hover:bg-white hover:text-black hover:border-white' },
+    { name: 'YouTube', icon: 'ri-youtube-fill', url: siteInfo.socialMedia.youtube, hoverColor: 'hover:bg-red-600 hover:border-red-600' },
+    { name: 'Facebook', icon: 'ri-facebook-circle-fill', url: siteInfo.socialMedia.facebook, hoverColor: 'hover:bg-blue-600 hover:border-blue-600' },
+];
+---
+
+<footer class="relative bg-[#0a0a0a] pt-20 pb-8 overflow-hidden">
+    <!-- Elementos decorativos -->
+    <div class="absolute top-0 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+    
+    <!-- Línea decorativa superior -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
+
+    <div class="relative container mx-auto px-6">
+        
+        <!-- Logo y descripción -->
+        <div class="flex flex-col items-center mb-12">
+            <div class="mb-6">
+                <h2 style="font-family: F1906 Fantasio Auriol W00 Normal;" class="text-5xl md:text-6xl font-bold text-white tracking-wider font-auriol">
+                    OWEN
+                </h2>
+            </div>
+            <p class="text-gray-400 text-center max-w-md mb-2">
+                Música Latina Pop Dominico-Venezolana
+            </p>
+            <p class="text-gray-500 text-sm text-center max-w-lg">
+                "Lo que todos piensan, dicho de la forma correcta"
+            </p>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="flex flex-col items-center mb-12">
+            <span class="text-gray-500 text-xs uppercase tracking-widest mb-6">Síguenos</span>
+            <div class="flex flex-wrap justify-center gap-4">
+                {socialLinks.map((social) => (
+                    <a 
+                        href={social.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class={`group w-12 h-12 flex justify-center items-center border border-gray-600 rounded-full text-gray-400 transition-all duration-300 hover:scale-110 hover:text-white ${social.hoverColor}`}
+                        aria-label={`Seguir en ${social.name}`}
+                    >
+                        <i class={`${social.icon} text-xl`} aria-hidden="true"></i>
+                    </a>
+                ))}
+            </div>
+        </div>
+
+        <!-- Links de navegación -->
+        <div class="flex flex-wrap justify-center gap-8 mb-12 text-sm">
+            <a href="/#home" class="text-gray-400 hover:text-white transition-colors">Inicio</a>
+            <a href="/#about" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a>
+            <a href="/#music" class="text-gray-400 hover:text-white transition-colors">Música</a>
+            <a href="/#team" class="text-gray-400 hover:text-white transition-colors">Equipo</a>
+        </div>
+
+        <!-- Contrataciones -->
+        <div class="flex flex-col items-center mb-12">
+            <span class="text-gray-500 text-xs uppercase tracking-widest mb-6">Contrataciones</span>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a 
+                    href="https://wa.me/18298273262"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-3 bg-white/5 hover:bg-green-500/20 border border-white/10 hover:border-green-500/50 px-6 py-3 rounded-full text-gray-400 hover:text-green-400 transition-all duration-300 group"
+                >
+                    <i class="ri-whatsapp-line text-lg group-hover:animate-pulse" aria-hidden="true"></i>
+                    <span class="text-sm font-medium">+1 (829) 827-3262</span>
+                </a>
+                <a 
+                    href="mailto:Info.owenmusic@gmail.com"
+                    class="flex items-center gap-3 bg-white/5 hover:bg-red-500/20 border border-white/10 hover:border-red-500/50 px-6 py-3 rounded-full text-gray-400 hover:text-red-400 transition-all duration-300 group"
+                >
+                    <i class="ri-mail-fill text-lg group-hover:animate-pulse" aria-hidden="true"></i>
+                    <span class="text-sm font-medium">Info.owenmusic@gmail.com</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Plataformas de streaming -->
+        <div class="flex flex-col items-center mb-12">
+            <span class="text-gray-500 text-xs uppercase tracking-widest mb-4">Escúchanos en</span>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a 
+                    href={siteInfo.socialMedia.spotify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-white/5 hover:bg-green-500/20 border border-white/10 hover:border-green-500/50 px-4 py-2 rounded-full text-gray-400 hover:text-green-400 transition-all duration-300"
+                >
+                    <i class="ri-spotify-fill text-lg" aria-hidden="true"></i>
+                    <span class="text-sm font-medium">Spotify</span>
+                </a>
+                <a 
+                    href={siteInfo.socialMedia.appleMusic}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-white/5 hover:bg-pink-500/20 border border-white/10 hover:border-pink-500/50 px-4 py-2 rounded-full text-gray-400 hover:text-pink-400 transition-all duration-300"
+                >
+                    <i class="ri-apple-fill text-lg" aria-hidden="true"></i>
+                    <span class="text-sm font-medium">Apple Music</span>
+                </a>
+                <a 
+                    href={siteInfo.socialMedia.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-white/5 hover:bg-red-500/20 border border-white/10 hover:border-red-500/50 px-4 py-2 rounded-full text-gray-400 hover:text-red-400 transition-all duration-300"
+                >
+                    <i class="ri-youtube-fill text-lg" aria-hidden="true"></i>
+                    <span class="text-sm font-medium">YouTube</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+
+        <!-- Copyright -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+            <p>© 2024 Owen Music. Todos los derechos reservados.</p>
+            <p class="flex items-center gap-2">
+                Hecho con <i class="ri-heart-fill text-red-500" aria-hidden="true"></i> en República Dominicana
+            </p>
+        </div>
+    </div>
+</footer>

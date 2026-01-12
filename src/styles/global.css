@@ -1,11 +1,50 @@
 @import "tailwindcss";
 
+/* Custom Font Face */
 @font-face {
     font-family: "F1906 Fantasio Auriol W00 Normal";
     src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot");
-    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.svg#F1906 Fantasio Auriol W00 Normal")format("svg");
+    src: url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/06d1897e43bd0ff032b443164c55679b.svg#F1906 Fantasio Auriol W00 Normal") format("svg");
+    font-display: swap;
+}
+
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+/* Utility classes */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Reduced motion support - excluye el carrusel */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *:not(.carousel-track-wrapper),
+    *:not(.carousel-track-wrapper)::before,
+    *:not(.carousel-track-wrapper)::after {
+        transition-duration: 0.01ms !important;
+    }
 }

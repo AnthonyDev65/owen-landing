@@ -1,47 +1,210 @@
 ---
 const sections = [
-    { name: 'HOME', href: '/#home' },
-    { name: 'AGENDA', href: '/#agenda' },
-    { name: 'SPEAKERS', href: '/#speakers' },
-    { name: 'SPONSORS', href: '/#sponsors' },
-    { name: 'TALLERES', href: '/#workshops' },
-]
+    { name: "INICIO", href: "/#home" },
+    { name: "QUÍENES SOMOS", href: "/#about" },
+    { name: "MÚSICA", href: "/#music" },
+    { name: "EQUIPO", href: "/#team" },
+];
 ---
 
-<header id="main-header" class="flex flex-col  items-center fixed top-0 w-full bg-dark-bg/90 backdrop-blur-md z-50 border-b border-white/10 transition-all duration-300">
-    <h1 
-        style="font-family: F1906 Fantasio Auriol W00 Normal;"
-        class="text-4xl mt-2 mb-2 text-white"  
-    >
-    OWEN
-    </h1>
-    
-    <nav class="hidden lg:flex gap-8 text-sm">
-        {sections.map(({ name, href }, key) => (
-        <a 
-            href={href} 
-            style="font-family: Montserrat;"
-            class={[
-            'hover:text-gray-300 text-white py-1 border-b-2 border-b-transparent transition hover:border-b-white text-lg',
-            'active:border-b-javascript'
-            ].join(' ')}
-            id={`navdesk-link-${key}`}
-        >
-            {name}
+<header
+    id="main-header"
+    class="fixed top-0 w-full z-60 transition-all duration-500 py-4">
+
+    <div
+        class="container mx-auto px-6 flex justify-between items-center relative z-70">
+        <!-- Logo -->
+        <a href="/">    
+            <h1
+                id="owen-logo" style="font-family: F1906 Fantasio Auriol W00 Normal;"
+                class="text-4xl text-black tracking-widest hover:scale-110 transition-all duration-500 font-auriol"
+            >
+                OWEN
+            </h1>
         </a>
-        ))}
-    </nav>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex gap-10">
+            {
+                sections.map(({ name, href }, key) => (
+                    <a
+                        href={href}
+                        class="nav-link text-black/70 hover:text-white text-sm font-bold tracking-widest transition-all duration-300 relative group font-montserrat"
+                        id={`navdesk-link-${key}`}
+                    >
+                        {name}
+                        <span class="nav-underline absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
+                    </a>
+                ))
+            }
+        </nav>
+
+        <!-- Mobile Toggle -->
+        <button
+            id="mobile-menu-toggle"
+            class="lg:hidden text-black text-3xl focus:outline-none transition-all duration-500"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+        >
+            <i class="ri-menu-4-fill" id="menu-icon" aria-hidden="true"></i>
+        </button>
+    </div> 
 </header>
 
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const header = document.getElementById("main-header");
-		if (!header) return;
-	
-	window.addEventListener("scroll", () => {
-		header.classList.toggle("opacity-0", window.scrollY > 0);
-		header.classList.toggle("collapse", window.scrollY > 0);
-		});
-	});
-</script>
+<!-- Mobile Nav Overlay - Now outside the header -->
+<div
+    id="mobile-menu"
+    class="fixed inset-0 bg-[#111111]/98 backdrop-blur-3xl flex flex-col items-center justify-center gap-8 z-50 opacity-0 invisible -translate-y-full transition-all duration-500 lg:hidden"
+>
+    {
+        sections.map(({ name, href }) => (
+            <a
+                href={href}
+                class="text-white text-3xl font-bold tracking-[0.2em] hover:text-gray-400 transition-all duration-300 mobile-link font-montserrat"
+            >
+                {name}
+            </a>
+        ))
+    }
+</div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const header = document.getElementById("main-header");
+        const toggle = document.getElementById("mobile-menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+        const icon = document.getElementById("menu-icon");
+        const links = document.querySelectorAll(".mobile-link");
+        const logo = document.getElementById("owen-logo");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const navUnderlines = document.querySelectorAll(".nav-underline");
+
+        if (!header || !toggle || !menu || !icon) return;
+
+        const updateHeaderStyles = () => {
+            const isScrolled = window.scrollY > 50;
+            const isMenuOpen = menu.classList.contains("translate-y-0");
+
+            if (isMenuOpen) {
+                header.classList.remove(
+                    "bg-[#111111]/40",
+                    "backdrop-blur-md",
+                    "py-2",
+                );
+                header.classList.add("py-4");
+
+                logo?.classList.add("text-white");
+                logo?.classList.remove("text-black");
+
+                toggle?.classList.add("text-white");
+                toggle?.classList.remove("text-black");
+            } else if (isScrolled) {
+                header.classList.add(
+                    "bg-[#111111]/40",
+                    "backdrop-blur-md",
+                    "py-2",
+                );
+                header.classList.remove("py-4");
+
+                logo?.classList.add("text-white");
+                logo?.classList.remove("text-black");
+
+                toggle?.classList.add("text-white");
+                toggle?.classList.remove("text-black");
+
+                navLinks.forEach((link) => {
+                    link.classList.add("text-white/70");
+                    link.classList.remove("text-black/70");
+                });
+
+                navUnderlines.forEach((underline) => {
+                    underline.classList.add("bg-white");
+                });
+            } else {
+                header.classList.remove(
+                    "bg-[#111111]/40",
+                    "backdrop-blur-md",
+                    "py-2",
+                );
+                header.classList.add("py-4");
+
+                logo?.classList.add("text-black");
+                logo?.classList.remove("text-white");
+
+                toggle?.classList.add("text-black");
+                toggle?.classList.remove("text-white");
+
+                navLinks.forEach((link) => {
+                    link.classList.add("text-black/70");
+                    link.classList.remove("text-white/70");
+                });
+
+                navUnderlines.forEach((underline) => {
+                    underline.classList.add("bg-white");
+                });
+            }
+        };
+
+        // Scroll listener
+        window.addEventListener("scroll", updateHeaderStyles);
+
+        const toggleMenu = (forceClose = false) => {
+            const isOpen = menu.classList.contains("translate-y-0");
+
+            if (isOpen || forceClose) {
+                menu.classList.replace("translate-y-0", "-translate-y-full");
+                menu.classList.replace("opacity-100", "opacity-0");
+
+                setTimeout(() => {
+                    if (!menu.classList.contains("translate-y-0")) {
+                        menu.classList.add("invisible");
+                    }
+                }, 500);
+
+                icon.classList.replace("ri-close-fill", "ri-menu-4-fill");
+                document.body.style.overflow = "auto";
+            } else {
+                menu.classList.remove("invisible");
+                setTimeout(() => {
+                    menu.classList.replace("-translate-y-full", "translate-y-0");
+                    menu.classList.replace("opacity-0", "opacity-100");
+                }, 10);
+
+                icon.classList.replace("ri-menu-4-fill", "ri-close-fill");
+                document.body.style.overflow = "hidden";
+            }
+            setTimeout(updateHeaderStyles, 20);
+        };
+
+        // Event listeners
+        toggle.addEventListener("click", () => toggleMenu());
+        
+        links.forEach((link) => {
+            link.addEventListener("click", () => toggleMenu(true));
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
+                const href = this.getAttribute('href');
+                
+                if (href && href.length > 2) {
+                    e.preventDefault();
+                    const targetId = href.substring(2); // Remove "/#"
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = header.offsetHeight;
+                        window.scrollTo({
+                            top: targetElement.offsetTop - headerHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Initialize
+        updateHeaderStyles();
+    }); 
+</script>       

@@ -1,0 +1,160 @@
+<section id="about" class="relative w-full min-h-screen bg-[#111111] overflow-hidden">
+    <!-- Fondo con degradado mejorado -->
+    <div class="absolute inset-0">
+        <img
+            class="w-full h-full object-cover opacity-40"
+            src="/src/background/BG-00.jpg"
+            alt="Fondo de la banda Owen"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#111111] via-transparent to-[#111111]"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#111111]/80 via-transparent to-[#111111]/80"></div>
+    </div>
+
+    <!-- Elementos decorativos -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+    <div class="relative container mx-auto px-6 md:px-10 py-20 md:py-32">
+        <!-- Título con animación -->
+        <div class="text-center mb-20">
+            <span class="inline-block text-blue-400 text-sm font-bold tracking-[0.3em] uppercase mb-4 font-montserrat">
+                Conoce nuestra historia
+            </span>
+            <h2 class="text-5xl md:text-7xl font-bold text-white italic tracking-wider font-auriol">
+                ¿Quiénes Somos?
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <!-- GRID PRINCIPAL -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <!-- COLUMNA IZQUIERDA - Imagen -->
+            <div class="relative">
+                <!-- Marco decorativo -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-60"></div>
+                
+                <div class="relative group">
+                    <!-- Imagen principal -->
+                    <div class="relative overflow-hidden rounded-3xl">
+                        <img
+                            class="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
+                            src="/team/group.jpg"
+                            alt="Banda Owen - Foto grupal de los integrantes"
+                        />
+                        <!-- Overlay gradiente -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60"></div>
+                    </div>
+
+                    <!-- Badge flotante -->
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-2xl shadow-2xl">
+                        <div class="text-3xl font-bold">2018</div>
+                        <div class="text-xs uppercase tracking-wider opacity-80">Desde</div>
+                    </div>
+
+                    <!-- Decoración lateral -->
+                    <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA - Contenido -->
+            <div class="flex flex-col gap-8">
+                
+                <!-- Intro -->
+                <div class="space-y-6">
+                    <p class="text-xl md:text-2xl text-gray-300 leading-relaxed font-light">
+                        Grupo <span class="text-white font-semibold">latín pop Dominico-venezolano</span> formado en la Ciudad de 
+                        <span class="text-blue-400">La Romana, República Dominicana</span>.
+                    </p>
+                </div>
+
+                <!-- Card principal con historia -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                                <i class="ri-music-2-line text-2xl text-white" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Nuestra Esencia</h3>
+                                <p class="text-gray-400 text-sm">Lo que nos define</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-300 leading-relaxed">
+                            <p>
+                                Integrado por <strong class="text-white">Brayan Castro</strong>, 
+                                <strong class="text-white">Josias Brito</strong> & 
+                                <strong class="text-white">Rubén Sánchez</strong>, 
+                                apuestan por un estilo propio, reflejando en sus canciones:
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-blue-500/5 rounded-r-xl">
+                                <p class="text-xl italic text-blue-300 font-medium">
+                                    "Lo que todos piensan, dicho de la forma correcta"
+                                </p>
+                            </blockquote>
+                            
+                            <p>
+                                Dando un sonido fresco, jugando entre lo <span class="text-pink-400">romántico</span>, 
+                                <span class="text-purple-400">bohemio</span> y lo <span class="text-blue-400">actual</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card del primer sencillo -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
+                                <i class="ri-album-line text-2xl text-white" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Primer Sencillo</h3>
+                                <p class="text-gray-400 text-sm">03 de Noviembre, 2023</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-300 leading-relaxed">
+                            Lanzaron oficialmente <strong class="text-white">"El Problema"</strong>, 
+                            con el cual proyectan el desamor de la forma más ingenua y sincera 
+                            desde la vista de un enamorado no correspondido.
+                        </p>
+
+                        <!-- Botón de escuchar -->
+                        <a 
+                            href="https://www.youtube.com/watch?v=rrHSAOhlP1U" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-3 mt-6 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white px-6 py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/25"
+                        >
+                            <i class="ri-play-circle-fill text-xl" aria-hidden="true"></i>
+                            Escuchar Ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="text-3xl font-bold text-white mb-1">3</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider">Integrantes</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="text-3xl font-bold text-white mb-1">5+</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider">Canciones</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/5 rounded-2xl border border-white/5">
+                        <div class="text-3xl font-bold text-white mb-1">7+</div>
+                        <div class="text-gray-400 text-xs uppercase tracking-wider">Años</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

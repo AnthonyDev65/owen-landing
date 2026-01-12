@@ -1,46 +1,108 @@
-# Astro Starter Kit: Basics
+# Owen - Banda Musical 🎵
 
-```sh
-pnpm create astro@latest -- --template basics
+Sitio web oficial de la banda Owen, grupo de música latina pop dominico-venezolano formado en 2018 en La Romana, República Dominicana.
+
+## 🚀 Tecnologías
+
+- **Astro** - Framework web moderno
+- **Tailwind CSS** - Framework de CSS utilitario
+- **TypeScript** - Tipado estático
+- **Content Collections** - Gestión de contenido estructurado
+
+## 🛠️ Desarrollo
+
+### Requisitos previos
+- Node.js 18+ 
+- pnpm (recomendado)
+
+### Instalación
+
+```bash
+# Clonar el repositorio
+git clone <repository-url>
+cd owen-landing
+
+# Instalar dependencias
+pnpm install
+
+# Iniciar servidor de desarrollo
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Scripts disponibles
 
-## 🚀 Project Structure
+| Comando | Acción |
+|---------|--------|
+| `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build` | Construye el sitio para producción en `./dist/` |
+| `pnpm preview` | Vista previa del build local |
+| `pnpm check` | Verifica tipos y errores de Astro |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Estructura del proyecto
 
-```text
+```
 /
-├── public/
+├── public/              # Archivos estáticos
+│   ├── team/           # Fotos del equipo
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── components/     # Componentes Astro
+│   ├── content/        # Content Collections
+│   │   ├── team/       # Datos del equipo
+│   │   └── site/       # Información del sitio
+│   ├── layouts/        # Layouts base
+│   ├── pages/          # Páginas del sitio
+│   ├── styles/         # Estilos globales
+│   └── utils/          # Utilidades
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🎨 Características
 
-## 🧞 Commands
+- ✅ Diseño responsive
+- ✅ SEO optimizado
+- ✅ Accesibilidad mejorada
+- ✅ Content Collections para gestión de datos
+- ✅ Lazy loading de imágenes
+- ✅ Smooth scrolling
+- ✅ Menú móvil interactivo
+- ✅ Integración con redes sociales
 
-All commands are run from the root of the project, from a terminal:
+## 🔧 Configuración
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### Tailwind CSS
+El proyecto usa Tailwind CSS con configuración personalizada en `tailwind.config.mjs`:
+- Colores personalizados para la marca
+- Fuentes tipográficas configuradas
+- Utilidades extendidas
 
-## 👀 Want to learn more?
+### Content Collections
+Los datos del equipo y sitio se gestionan mediante Content Collections:
+- `src/content/team/` - Información de los miembros
+- `src/content/site/` - Datos generales del sitio
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📱 Redes Sociales
+
+- [Instagram](https://www.instagram.com/owenmusicrd/)
+- [Facebook](https://www.facebook.com/profile.php?id=61558051167125)
+- [YouTube](https://www.youtube.com/@OwenMusicRD)
+- [Threads](https://www.threads.com/@owenmusicrd)
+
+## 🚀 Despliegue
+
+El sitio está optimizado para despliegue en:
+- Vercel
+- Netlify
+- GitHub Pages
+- Cualquier hosting estático
+
+```bash
+# Build para producción
+pnpm build
+
+# Los archivos se generan en ./dist/
+```
+
+## 📄 Licencia
+
+© 2024 Owen Banda Musical. Todos los derechos reservados.

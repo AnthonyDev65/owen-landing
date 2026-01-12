@@ -1,18 +1,114 @@
-<section class="relative bg-black w-full h-full ">
+---
+import { siteInfo } from '../data/site';
 
-    <div class="absolute w-screen h-screen overflow-hidden">
+const socialLinks = [
+    { name: 'Spotify', icon: 'ri-spotify-fill', url: siteInfo.socialMedia.spotify, color: 'hover:bg-green-500 hover:border-green-500' },
+    { name: 'Instagram', icon: 'ri-instagram-line', url: siteInfo.socialMedia.instagram, color: 'hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-pink-500' },
+    { name: 'Apple Music', icon: 'ri-apple-fill', url: siteInfo.socialMedia.appleMusic, color: 'hover:bg-pink-500 hover:border-pink-500' },
+    { name: 'TikTok', icon: 'ri-tiktok-fill', url: siteInfo.socialMedia.tiktok, color: 'hover:bg-black hover:border-white' },
+    { name: 'YouTube', icon: 'ri-youtube-fill', url: siteInfo.socialMedia.youtube, color: 'hover:bg-red-600 hover:border-red-600' },
+];
+---
+
+<section
+    id="home"
+    class="relative bg-black w-full min-h-screen flex items-center justify-center overflow-hidden"
+>
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 w-full h-full">
         <img
-            src="/public/hero.jpg"
-            alt=""
-            class="w-full h-full object-cover"
+            src="/team/IMG_8173.jpg"
+            alt="Banda Owen en presentación musical - Imagen principal"
+            class="w-full h-full object-cover object-top" 
         />
     </div>
 
-    <!--Difuminado negro -->
-    <div class="absolute w-full h-full bg-linear-to-t from-[#111111] to-transparent">
+    <!-- Overlay gradiente -->
+    <div class="absolute inset-0 w-full h-full bg-linear-to-t from-[#111111] via-[#111111]/30 to-transparent"></div>
+    <div class="absolute inset-0 w-full h-full bg-linear-to-r from-[#111111]/50 via-transparent to-[#111111]/50"></div>
 
+    <!-- Contenido del Hero -->
+    <div class="relative z-10 flex flex-col items-center justify-end h-full pb-20 md:pb-32 px-6">
+        
+        <!-- Logo/Nombre de la banda -->
+        <div class="text-center mb-8">
+            <h1 style="font-family: F1906 Fantasio Auriol W00 Normal;" class="owen-title text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-wider font-auriol mb-4 drop-shadow-2xl">
+                OWEN
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl tracking-[0.3em] uppercase font-light">
+                Plataformas Digitales
+            </p>
+        </div>
+
+        <!-- Redes Sociales -->
+        <div class="flex items-center gap-4 md:gap-6 mb-8">
+            {socialLinks.map((social) => (
+                <a 
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`group w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.color}`}
+                    aria-label={`Seguir a Owen en ${social.name}`}
+                >
+                    <i class={`${social.icon} text-xl md:text-2xl`} aria-hidden="true"></i>
+                </a>
+            ))}
+        </div>
+
+        <!-- CTA Button -->
+        <a 
+            href="/#music"
+            class="group inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105"
+        >
+            <i class="ri-play-circle-fill text-xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+            Escuchar Ahora
+            <i class="ri-arrow-down-line text-lg animate-bounce" aria-hidden="true"></i>
+        </a>
     </div>
 
+    <!-- Scroll indicator - solo en desktop -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/50">
+        <span class="text-xs uppercase tracking-widest">Scroll</span>
+        <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+            <div class="w-1.5 h-3 bg-white/50 rounded-full animate-bounce"></div>
+        </div>
+    </div>
 </section>
 
+<style>
+    .owen-title {
+        background: linear-gradient(45deg, #8b5cf6, #3b82f6, #ec4899, #8b5cf6);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke: 3px transparent;
+        text-shadow: 
+            0 0 20px rgba(139, 92, 246, 0.5),
+            0 0 40px rgba(59, 130, 246, 0.3),
+            0 0 60px rgba(236, 72, 153, 0.2);
+        animation: gradientShift 4s ease-in-out infinite;
+    }
 
+    @keyframes gradientShift {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    /* Fallback para navegadores que no soportan text-stroke */
+    @supports not (-webkit-text-stroke: 3px transparent) {
+        .owen-title {
+            text-shadow: 
+                -2px -2px 0 #8b5cf6,
+                2px -2px 0 #8b5cf6,
+                -2px 2px 0 #8b5cf6,
+                2px 2px 0 #8b5cf6,
+                0 0 20px rgba(139, 92, 246, 0.5),
+                0 0 40px rgba(59, 130, 246, 0.3),
+                0 0 60px rgba(236, 72, 153, 0.2);
+        }
+    }
+</style>
