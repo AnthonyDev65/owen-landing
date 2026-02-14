@@ -4,7 +4,7 @@ export interface TeamMember {
   role: string;
   photo: string;
   bio: string;
-  instagram: string;
+  instagram: string;  
   followers: string;
   order?: number;
 }
